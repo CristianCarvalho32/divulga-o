@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seu negócio merece ser visto!</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- GLightbox CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+  <style>
+    /* Reset and base */
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      scroll-behavior: smooth;
+      color: #333;
+    }
+
+    /* Header Section */
+    header {
+      background: linear-gradient(to right, #054487, #0056b3);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    header h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    header h3 {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+    header p {
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
+      font-weight: 300;
+    }
+
+    /* Gallery Section */
+    .galeria {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .imagem-exemplo {
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      background: #fff;
+    }
+    .imagem-exemplo img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s;
+      display: block;
+      border-radius: 15px;
+    }
+    .imagem-exemplo:hover img {
+      transform: scale(1.05);
+    }
+    .descricao-imagem {
+      position: absolute;
+      bottom: 8px;
+      left: 15px;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      max-width: 90%;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* CTA Button Section */
+    .cta-container {
+      text-align: center;
+      margin: 40px 0 60px;
+    }
+    .cta-button {
+      background-color: #25D366;
+      color: white;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-weight: 700;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .cta-button:hover, .cta-button:focus {
+      background-color: #1ebe5d;
+      transform: scale(1.05);
+      outline: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+
+    /* Testimonials Section */
+    .depoimentos {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .depoimentos h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 40px;
+      color: #054487;
+      font-weight: 600;
+    }
+    .depoimento {
+      background: white;
+      padding: 30px 25px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      font-style: italic;
+      color: #555;
+      position: relative;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+    }
+    .depoimento::before {
+      content: "“";
+      font-size: 3rem;
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      color: #25D366;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background: #343a40;
+      color: white;
+      padding: 20px 0 40px;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      text-align: center;
+    }
+    .social-media {
+      margin-top: 15px;
+    }
+    .social-media a {
+      color: #fff;
+      margin: 0 12px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .social-media a:hover, .social-media a:focus {
+      color: #25D366;
+      outline: none;
+    }
+
+    @media (max-width: 576px) {
+      header {
+        padding: 40px 15px;
+      }
+      .galeria {
+        padding: 20px 15px;
+      }
+      .depoimentos {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<header data-aos="fade-down" data-aos-duration="1000">
+  <h1>Seu negócio merece ser visto!</h1>
+  <h3>Você está começando agora ou quer melhorar sua presença online? Eu posso te ajudar.</h3>
+  <p>Páginas simples, bonitas e acessíveis para mostrar seus serviços e atrair novos clientes.</p>
+</header>
+
+<!-- Gallery -->
+<section class="galeria container">
+  <div class="row g-4">
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+      <div class="imagem-exemplo">
+        <a href="Barbearia.jpg" class="glightbox" data-gallery="galeria">
+          <img src="Barbearia.jpg" alt="Exemplo de página 1">
+          <div class="descricao-imagem">Exemplo Barbearia </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+      <div class="imagem-exemplo">
+        <a href="Barbearia.png" class="glightbox" data-gallery="galeria">
+          <img src="Barbearia.png" alt="Exemplo de página 2">
+          <div class="descricao-imagem">Exemplo Barbearia </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="imagem-exemplo">
+        <a href="salão.jpg" class="glightbox" data-gallery="galeria">
+          <img src="salão.jpg" alt="Exemplo de página 3">
+          <div class="descricao-imagem">Exemplo Salão </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
+      <div class="imagem-exemplo">
+        <a href="hamburgueria.jpg" class="glightbox" data-gallery="galeria">
+          <img src="hamburgueria.jpg" alt="Exemplo de página 4">
+          <div class="descricao-imagem">Exemplo Hamburgueria </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+      <div class="imagem-exemplo">
+        <a href="hamburgueria 2.jpg" class="glightbox" data-gallery="galeria">
+          <img src="hamburgueria 2.jpg" alt="Exemplo de página 5">
+          <div class="descricao-imagem">Exemplo Hamburgueria </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
+      <div class="imagem-exemplo">
+        <a href="salão2.jpg" class="glightbox" data-gallery="galeria">
+          <img src="salão2.jpg" alt="Exemplo de página 6">
+          <div class="descricao-imagem">Exemplo Salão </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
+    <div class="imagem-exemplo">
+      <a href="portifólio.png" class="glightbox" data-gallery="galeria">
+        <img src="portifólio.png" alt="Exemplo de página 7">
+        <div class="descricao-imagem">Exemplo portifólio </div>
+      </a>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<div class="cta-container" data-aos="zoom-in" data-aos-delay="400">
+  <a href="https://wa.me/5541996459510" class="cta-button" target="_blank" rel="noopener">
+    📲 Quero Minha Página Agora
+  </a>
+</div>
+
+<!-- Testimonials -->
+<section class="depoimentos" aria-label="Depoimentos de clientes">
+  <h2 data-aos="fade-right" data-aos-delay="500">O que meus clientes dizem!</h2>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="600" tabindex="0">
+    <p>Excelente serviço! Recomendo a todos!</p>
+    <p><strong>- Marina Kruger</strong></p>
+  </div>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="700" tabindex="0">
+    <p> Comecei a Vender o dobro e ter Muito mais clicks depois de ter uma página de apresentação!</p>
+    <p><strong>- Carlos Emanuel</strong></p>
+  </div>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="800" tabindex="0">
+    <p>Meu site foi feito rapidamente e ficou lindo!</p>
+    <p><strong>- Luiza Dantas</strong></p>
+  </div>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="900" tabindex="0">
+    <p> É bom contar com alguem que está começando, assim passa confiança e preço justo. !</p>
+    <p><strong>- Marcos</strong></p>
+  </div>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="1000" tabindex="0">
+    <p> Abri minha tabacaria pouco mais de um mês, com medo de não ter clientela  resolvi contratar o serviço, e não me arrependo. Em 2 semanas o numero de pessoas visitando meu estabelecimento dobrou.</p>
+    <p><strong>- João Paulo </strong></p>
+  </div>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="1001" tabindex="0">
+    <p> O simples fato de você ter uma página onde você mostra o seu negócio com localização, preços,fotos e oferece o seu produto te da a chance de crescer muito mais em todos os sentidos!</p>
+    <p><strong>- Roberto Chagas</strong></p>
+  </div>
+  <div class="depoimento" data-aos="fade-left" data-aos-delay="1001" tabindex="0">
+    <p> Pedi para criar um portifólio, e depois disso passei a ser muito mais visto e solicitado principalmente em vagas de emprego, é muito mais que um currículo, é uma chave de entrada para as oportunidades !</p>
+    <p><strong>- Junior Eduardo </strong></p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 Todos os direitos reservados. Transforme seu negócio online!</p>
+  <div class="social-media" role="navigation" aria-label="Redes sociais">
+    <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://github.com/CristianCarvalho32" aria-label="github" target="_blank" rel="noopener">github</a>
+    <a href="https://linkedin.com" aria-label="Linkedin" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<!-- GLightbox JS -->
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<!-- AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+<script>
+  // Inicializa o GLightbox para as imagens
+  const lightbox = GLightbox({
+    selector: '.glightbox'
+  });
+
+  // Inicializa a biblioteca AOS
+  AOS.init({
+    once: true, // anima apenas na primeira vez que aparece
+    duration: 700
+  });
+</script>
+
+</body>
+</html>
