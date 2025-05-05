@@ -1,194 +1,277 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Criação de páginas profissionais para pequenos negócios. Veja exemplos e solicite a sua.">
+  <meta name="google-site-verification" content="seu-código-do-adsense">
+  <meta charset="UTF-8"> <!-- Define a codificação de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que a página seja responsiva em diferentes dispositivos -->
+  <meta name="description" content="Criação de páginas profissionais para pequenos negócios. Veja exemplos e solicite a sua."> <!-- Descrição da página para motores de busca -->
 
-  <title>Aumente a visibilidade do seu negocio online!</title>
+  <title>Aumente a visibilidade do seu negocio online!</title> <!-- Título da página que aparece na aba do navegador -->
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> <!-- Importa a fonte Poppins do Google Fonts -->
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Inclui o CSS do Bootstrap para grids e estilos responsivos -->
 
   <!-- GLightbox CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet"> <!-- Inclui o CSS do GLightbox para visualizar imagens em lightbox -->
 
   <!-- AOS CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"> <!-- Inclui o CSS da biblioteca AOS para animações -->
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- Inclui o CSS do Swiper para criar o carrossel -->
 
   <style>
-    /* Reset and base */
+    /* Reset e base */
     body {
-      font-family: 'Poppins', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f0f2f5;
-      scroll-behavior: smooth;
-      color: #333;
+      font-family: 'Poppins', Arial, sans-serif; /* Define a fonte principal da página */
+      margin: 0; /* Remove margens padrão do corpo */
+      padding: 0; /* Remove preenchimento padrão do corpo */
+      background: #f0f2f5; /* Define a cor de fundo clara */
+      scroll-behavior: smooth; /* Faz a rolagem da página ser suave */
+      color: #333; /* Cor do texto principal */
     }
 
     /* Header Section */
     header {
-  background-color: #054487;
-  background-image: url('fundo.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
-}
+      background-color: #054487; /* Cor de fundo principal do header */
+      background-image: url('fundo.jpg'); /* Imagem de fundo do header */
+      background-size: cover; /* Faz a imagem cobrir todo o espaço */
+      background-position: center; /* Centraliza a imagem de fundo */
+      color: white; /* Cor do texto no header */
+      text-align: center; /* Centraliza o texto */
+      padding: 60px 20px; /* Espaçamento interno (topo/baixo e laterais) */
+      position: relative; /* Define posição relativa para o overlay */
+      z-index: 1; /* Garante que o conteúdo fique acima do overlay */
+    }
+
+    header::before {
+      content: ""; /* Cria um elemento vazio antes do header */
+      position: absolute; /* Posiciona o overlay */
+      top: 0; /* Alinha no topo */
+      left: 0; /* Alinha à esquerda */
+      right: 0; /* Alinha à direita */
+      bottom: 0; /* Alinha embaixo */
+      background: rgba(0, 0, 0, 0.5); /* Overlay escuro semitransparente */
+      z-index: 0; /* Coloca o overlay atrás do conteúdo */
+    }
+
+    header h1,
+    header h3,
+    header p {
+      position: relative; /* Garante que o texto fique acima do overlay */
+      z-index: 1; /* Prioriza o texto sobre o overlay */
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto */
+    }
 
     header h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 20px;
-      font-weight: 600;
-    }
-    header h3 {
-      font-size: clamp(1.2rem, 2vw, 1.5rem);
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
-    header p {
-      font-size: clamp(1rem, 1.5vw, 1.25rem);
-      font-weight: 300;
+      font-size: clamp(2.5rem, 5vw, 4rem); /* Tamanho do título adaptável */
+      margin-bottom: 20px; /* Espaçamento abaixo do título */
+      font-weight: 600; /* Peso da fonte (negrito) */
     }
 
-    /* Gallery Section */
+    header h3 {
+      font-size: clamp(1.2rem, 2vw, 1.5rem); /* Tamanho do subtítulo adaptável */
+      margin-bottom: 10px; /* Espaçamento abaixo do subtítulo */
+      font-weight: 400; /* Peso da fonte normal */
+    }
+
+    header p {
+      font-size: clamp(1rem, 1.5vw, 1.25rem); /* Tamanho do parágrafo adaptável */
+      font-weight: 300; /* Peso da fonte leve */
+    }
+
+    /* Gallery Section (Carrossel) */
     .galeria {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      padding: 40px 20px; /* Espaçamento interno (topo/baixo e laterais) */
+      max-width: 1200px; /* Largura máxima da seção */
+      margin: 0 auto; /* Centraliza a seção */
     }
+
+    .swiper {
+      width: 100%; /* Largura total do carrossel */
+      padding: 20px 0; /* Espaçamento interno para os slides */
+    }
+
+    .swiper-slide {
+      display: flex; /* Usa flexbox para alinhar os itens */
+      justify-content: center; /* Centraliza os itens horizontalmente */
+      align-items: center; /* Centraliza os itens verticalmente */
+      height: auto; /* Altura automática para os slides */
+    }
+
     .imagem-exemplo {
-      overflow: hidden;
-      border-radius: 15px;
-      box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      background: #fff;
+      overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites */
+      border-radius: 15px; /* Arredonda as bordas */
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.15); /* Adiciona sombra leve */
+      cursor: pointer; /* Muda o cursor para indicar interatividade */
+      transition: transform 0.3s, box-shadow 0.3s; /* Animação ao passar o mouse */
+      position: relative; /* Posição relativa para a descrição */
+      background: #fff; /* Fundo branco */
+      width: 300px; /* Largura fixa para cada item */
     }
+
+    .imagem-exemplo:hover {
+      transform: translateY(-5px); /* Eleva o item ao passar o mouse */
+      box-shadow: 0px 6px 20px rgba(0,0,0,0.25); /* Aumenta a sombra ao passar o mouse */
+    }
+
     .imagem-exemplo img {
-      width: 100%;
-      height: auto;
-      transition: transform 0.5s;
-      display: block;
-      border-radius: 15px;
+      width: 100%; /* Largura total da imagem dentro do item */
+      height: auto; /* Altura automática para manter a proporção */
+      transition: transform 0.5s; /* Animação de zoom */
+      display: block; /* Garante que a imagem seja tratada como bloco */
+      border-radius: 15px; /* Arredonda as bordas da imagem */
     }
+
     .imagem-exemplo:hover img {
-      transform: scale(1.05);
+      transform: scale(1.05); /* Aumenta a imagem ao passar o mouse */
     }
+
     .descricao-imagem {
-      position: absolute;
-      bottom: 8px;
-      left: 15px;
-      color: white;
-      background: rgba(0,0,0,0.5);
-      padding: 6px 10px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      max-width: 90%;
-      user-select: none;
-      pointer-events: none;
+      position: absolute; /* Posiciona a descrição sobre a imagem */
+      bottom: 8px; /* Distância do fundo */
+      left: 15px; /* Distância da esquerda */
+      color: white; /* Cor do texto */
+      background: rgba(0,0,0,0.5); /* Fundo semitransparente */
+      padding: 6px 10px; /* Espaçamento interno */
+      border-radius: 8px; /* Arredonda as bordas */
+      font-size: 0.9rem; /* Tamanho da fonte */
+      max-width: 90%; /* Largura máxima */
+      user-select: none; /* Impede a seleção do texto */
+      pointer-events: none; /* Impede interações com a descrição */
+    }
+
+    /* Botões de navegação do Swiper */
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: #333; /* Cor das setas */
+      background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente */
+      border-radius: 50%; /* Arredonda as setas */
+      width: 40px; /* Largura das setas */
+      height: 40px; /* Altura das setas */
+    }
+
+    /* Paginação do Swiper */
+    .swiper-pagination {
+      bottom: 10px; /* Posição da paginação */
+    }
+
+    .swiper-pagination-bullet {
+      background-color: #ddd; /* Cor dos pontos de paginação */
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: #054487; /* Cor do ponto ativo */
     }
 
     /* CTA Button Section */
     .cta-container {
-      text-align: center;
-      margin: 40px 0 60px;
+      text-align: center; /* Centraliza o botão */
+      margin: 40px 0 60px; /* Espaçamento ao redor */
     }
+
     .cta-button {
-      background-color: #25D366;
-      color: white;
-      padding: 15px 30px;
-      border-radius: 50px;
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      font-weight: 700;
-      text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.3s ease;
-      display: inline-block;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      background-color: #25D366; /* Cor de fundo do botão */
+      color: white; /* Cor do texto */
+      padding: 15px 30px; /* Espaçamento interno */
+      border-radius: 50px; /* Arredonda as bordas */
+      font-size: clamp(1rem, 2vw, 1.2rem); /* Tamanho da fonte adaptável */
+      font-weight: 700; /* Peso da fonte (negrito) */
+      text-decoration: none; /* Remove sublinhado */
+      transition: background-color 0.3s ease, transform 0.3s ease; /* Animações */
+      display: inline-block; /* Permite interatividade */
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Sombra leve */
     }
+
     .cta-button:hover, .cta-button:focus {
-      background-color: #1ebe5d;
-      transform: scale(1.05);
-      outline: none;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      background-color: #1ebe5d; /* Cor ao passar o mouse */
+      transform: scale(1.05); /* Aumenta o botão */
+      outline: none; /* Remove contorno padrão */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25); /* Aumenta a sombra */
     }
 
     /* Testimonials Section */
     .depoimentos {
-      max-width: 900px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-      text-align: center;
+      max-width: 900px; /* Largura máxima */
+      margin: 0 auto 60px; /* Centraliza e adiciona espaçamento */
+      padding: 0 20px; /* Espaçamento lateral */
+      text-align: center; /* Centraliza o texto */
     }
+
     .depoimentos h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      margin-bottom: 40px;
-      color: #054487;
-      font-weight: 600;
+      font-size: clamp(2rem, 4vw, 3rem); /* Tamanho do título adaptável */
+      margin-bottom: 40px; /* Espaçamento abaixo */
+      color: #054487; /* Cor do título */
+      font-weight: 600; /* Peso da fonte */
     }
+
     .depoimento {
-      background: white;
-      padding: 30px 25px;
-      margin-bottom: 25px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      font-style: italic;
-      color: #555;
-      position: relative;
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      background: white; /* Fundo branco */
+      padding: 30px 25px; /* Espaçamento interno */
+      margin-bottom: 25px; /* Espaçamento entre depoimentos */
+      border-radius: 12px; /* Arredonda as bordas */
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1); /* Sombra leve */
+      font-style: italic; /* Estilo de texto itálico */
+      color: #555; /* Cor do texto */
+      position: relative; /* Posição relativa para o ícone */
+      font-size: clamp(1rem, 2vw, 1.25rem); /* Tamanho da fonte adaptável */
     }
+
     .depoimento::before {
-      content: "“";
-      font-size: 3rem;
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      color: #25D366;
-      font-weight: bold;
+      content: "“"; /* Adiciona aspas no início */
+      font-size: 3rem; /* Tamanho da aspa */
+      position: absolute; /* Posiciona a aspa */
+      top: 10px; /* Distância do topo */
+      left: 15px; /* Distância da esquerda */
+      color: #25D366; /* Cor da aspa */
+      font-weight: bold; /* Peso da fonte */
     }
 
     /* Footer */
     footer {
-      background: #343a40;
-      color: white;
-      padding: 20px 0 40px;
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
-      text-align: center;
+      background: #343a40; /* Cor de fundo escura */
+      color: white; /* Cor do texto */
+      padding: 20px 0 40px; /* Espaçamento interno */
+      font-size: clamp(0.9rem, 1.5vw, 1rem); /* Tamanho da fonte adaptável */
+      text-align: center; /* Centraliza o texto */
     }
+
     .social-media {
-      margin-top: 15px;
+      margin-top: 15px; /* Espaçamento acima */
     }
+
     .social-media a {
-      color: #fff;
-      margin: 0 12px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: color 0.3s;
+      color: #fff; /* Cor dos links */
+      margin: 0 12px; /* Espaçamento entre links */
+      font-weight: 600; /* Peso da fonte */
+      text-decoration: none; /* Remove sublinhado */
+      font-size: 1.2rem; /* Tamanho da fonte */
+      transition: color 0.3s; /* Animação de cor */
     }
+
     .social-media a:hover, .social-media a:focus {
-      color: #25D366;
-      outline: none;
+      color: #25D366; /* Cor ao passar o mouse */
+      outline: none; /* Remove contorno padrão */
     }
 
     @media (max-width: 576px) {
       header {
-        padding: 40px 15px;
+        padding: 40px 15px; /* Ajusta o padding em telas pequenas */
       }
       .galeria {
-        padding: 20px 15px;
+        padding: 20px 15px; /* Ajusta o padding da galeria */
       }
       .depoimentos {
-        padding: 0 15px;
+        padding: 0 15px; /* Ajusta o padding dos depoimentos */
       }
     }
+
   </style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3109392923477799"
+crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -199,65 +282,75 @@
   <p>Páginas simples, bonitas e acessíveis para mostrar seus serviços e atrair novos clientes.</p>
 </header>
 
-<!-- Gallery -->
+<!-- Gallery (Carrossel) -->
 <section class="galeria container">
-  <div class="row g-4">
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-      <div class="imagem-exemplo">
-        <a href="Barbearia.jpg" class="glightbox" data-gallery="galeria">
-          <img src="Barbearia.jpg" alt="Exemplo de página 1">
-          <div class="descricao-imagem">Exemplo Barbearia </div>
-        </a>
+  <!-- Contêiner principal do Swiper -->
+  <div class="swiper galeria-carousel">
+    <!-- Contêiner dos slides -->
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="Barbearia.jpg" class="glightbox" data-gallery="galeria">
+            <img src="Barbearia.jpg" alt="Exemplo de página 1">
+            <div class="descricao-imagem">Exemplo Barbearia</div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="Barbearia.png" class="glightbox" data-gallery="galeria">
+            <img src="Barbearia.png" alt="Exemplo de página 2">
+            <div class="descricao-imagem">Exemplo Barbearia</div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="salão.jpg" class="glightbox" data-gallery="galeria">
+            <img src="salão.jpg" alt="Exemplo de página 3">
+            <div class="descricao-imagem">Exemplo Salão</div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="hamburgueria.jpg" class="glightbox" data-gallery="galeria">
+            <img src="hamburgueria.jpg" alt="Exemplo de página 4">
+            <div class="descricao-imagem">Exemplo Hamburgueria</div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="hamburgueria 2.jpg" class="glightbox" data-gallery="galeria">
+            <img src="hamburgueria 2.jpg" alt="Exemplo de página 5">
+            <div class="descricao-imagem">Exemplo Hamburgueria</div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="salão2.jpg" class="glightbox" data-gallery="galeria">
+            <img src="salão2.jpg" alt="Exemplo de página 6">
+            <div class="descricao-imagem">Exemplo Salão</div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="imagem-exemplo">
+          <a href="portifólio.png" class="glightbox" data-gallery="galeria">
+            <img src="portifólio.png" alt="Exemplo de página 7">
+            <div class="descricao-imagem">Exemplo portifólio</div>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
-      <div class="imagem-exemplo">
-        <a href="Barbearia.png" class="glightbox" data-gallery="galeria">
-          <img src="Barbearia.png" alt="Exemplo de página 2">
-          <div class="descricao-imagem">Exemplo Barbearia </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-      <div class="imagem-exemplo">
-        <a href="salão.jpg" class="glightbox" data-gallery="galeria">
-          <img src="salão.jpg" alt="Exemplo de página 3">
-          <div class="descricao-imagem">Exemplo Salão </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="250">
-      <div class="imagem-exemplo">
-        <a href="hamburgueria.jpg" class="glightbox" data-gallery="galeria">
-          <img src="hamburgueria.jpg" alt="Exemplo de página 4">
-          <div class="descricao-imagem">Exemplo Hamburgueria </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
-      <div class="imagem-exemplo">
-        <a href="hamburgueria 2.jpg" class="glightbox" data-gallery="galeria">
-          <img src="hamburgueria 2.jpg" alt="Exemplo de página 5">
-          <div class="descricao-imagem">Exemplo Hamburgueria </div>
-        </a>
-      </div>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="350">
-      <div class="imagem-exemplo">
-        <a href="salão2.jpg" class="glightbox" data-gallery="galeria">
-          <img src="salão2.jpg" alt="Exemplo de página 6">
-          <div class="descricao-imagem">Exemplo Salão </div>
-        </a>
-      </div>
-    </div>
+    <!-- Botões de navegação -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <!-- Paginação -->
+    <div class="swiper-pagination"></div>
   </div>
-  <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="150">
-    <div class="imagem-exemplo">
-      <a href="portifólio.png" class="glightbox" data-gallery="galeria">
-        <img src="portifólio.png" alt="Exemplo de página 7">
-        <div class="descricao-imagem">Exemplo portifólio </div>
-      </a>
-    </div>
 </section>
 
 <!-- Call to Action -->
@@ -311,22 +404,58 @@
 </footer>
 
 <!-- GLightbox JS -->
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script> <!-- Inclui o JavaScript do GLightbox -->
 <!-- AOS JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script> <!-- Inclui o JavaScript da biblioteca AOS -->
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> <!-- Inclui o JavaScript do Swiper -->
 
 <script>
   // Inicializa o GLightbox para as imagens
   const lightbox = GLightbox({
-    selector: '.glightbox'
+    selector: '.glightbox' // Seleciona todos os elementos com a classe glightbox
   });
 
   // Inicializa a biblioteca AOS
   AOS.init({
-    once: true, // anima apenas na primeira vez que aparece
-    duration: 700
+    once: true, // Anima apenas na primeira vez que o elemento aparece
+    duration: 700 // Duração da animação em milissegundos
+  });
+
+  // Inicializa o Swiper para o carrossel
+  const swiper = new Swiper('.galeria-carousel', {
+    slidesPerView: 3, // Mostra 3 slides por vez
+    spaceBetween: 20, // Espaço entre os slides em pixels
+    loop: true, // Permite que o carrossel volte ao início após o último slide
+    navigation: {
+      nextEl: '.swiper-button-next', // Define o botão de próximo
+      prevEl: '.swiper-button-prev', // Define o botão de anterior
+    },
+    pagination: {
+      el: '.swiper-pagination', // Define a área da paginação
+      clickable: true, // Permite clicar nos pontos para mudar de slide
+    },
+    autoplay: {
+      delay: 5000, // Troca de slide a cada 5 segundos
+      disableOnInteraction: false, // Continua o autoplay mesmo com interação
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 1, // 1 slide em telas menores que 640px
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 2, // 2 slides em telas entre 640px e 768px
+        spaceBetween: 15,
+      },
+      1024: {
+        slidesPerView: 3, // 3 slides em telas maiores que 1024px
+        spaceBetween: 20,
+      },
+    },
   });
 </script>
+<script src="https://cdn.counter.dev/script.js" data-id="e358bf09-5a42-4542-85c1-117589495344" data-utcoffset="-3"></script>
 
 </body>
 </html>
